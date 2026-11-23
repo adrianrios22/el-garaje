@@ -13,10 +13,14 @@
     content="Pizzería El Garaje: pizzas, hamburguesas, papitas, perros, carnes y más. Arma tu pedido y envíalo por WhatsApp."
   >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700;800;900&family=Barlow+Condensed:ital,wght@0,800;0,900;1,900&family=Permanent+Marker&display=swap" rel="stylesheet">
   <style>
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url('./fuentes/barlow-latin-400-normal.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:700;font-display:swap;src:url('./fuentes/barlow-latin-700-normal.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:800;font-display:swap;src:url('./fuentes/barlow-latin-800-normal.woff2') format('woff2');}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:900;font-display:swap;src:url('./fuentes/barlow-latin-900-normal.woff2') format('woff2');}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:800;font-display:swap;src:url('./fuentes/barlow-condensed-latin-800-normal.woff2') format('woff2');}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:900;font-display:swap;src:url('./fuentes/barlow-condensed-latin-900-normal.woff2') format('woff2');}
+
 
     /* ========================================
        VARIABLES DE LA PLANTILLA
@@ -1128,6 +1132,48 @@
       .hero h1 { position:absolute; z-index:1; top:0; left:0; width:52%; height:59%; margin:0; padding:4.4% 0 0 4.3%; overflow:visible; clip-path:none; white-space:normal; background:#0d0d0d; font-size:9.1vw; line-height:1.08; display:flex; flex-direction:column; justify-content:center; padding-bottom:4%; }
       .hero h1 br { display:none; }
     }
+
+    /* Refinamiento visual: foto original, sin parches ni texto incrustado. */
+    .logo .emblema-garaje { width:100px; height:74.48px; clip-path:polygon(50% 1%,65% 4%,77% 15%,84% 36%,100% 36%,95% 49%,100% 67%,84% 67%,77% 85%,65% 96%,50% 99%,35% 96%,23% 85%,16% 67%,0 67%,5% 49%,0 36%,16% 36%,23% 15%,35% 4%); }
+    header .nav { min-height:84px; }
+    .hero { isolation:isolate; background:#0d0d0d; }
+    .hero::before { content:''; display:block; position:absolute; inset:0 0 0 auto; width:auto; aspect-ratio:466 / 619; height:100%; border-radius:0; clip-path:none; filter:none; background:url('./imagenes/hamburguesa.webp') right center / auto 100% no-repeat; mask-image:linear-gradient(to right,transparent,#000 27%),linear-gradient(to top,transparent,#000 13%); mask-composite:intersect; -webkit-mask-image:linear-gradient(to right,transparent,#000 27%),linear-gradient(to top,transparent,#000 13%); -webkit-mask-composite:source-in; z-index:-1; }
+    .hero::after { display:none; }
+    .hero h1 { letter-spacing:-.035em; }
+    .menu-esencial { background:#101010; }
+    .menu-cabecera { margin-bottom:16px; }
+    .categorias-navegacion { position:relative; }
+    .categorias-pestanas { gap:10px; margin-bottom:20px; }
+    .pestana-menu { padding:11px 17px; border-radius:18px; text-align:left; gap:10px; }
+    .categoria-textos { display:flex; flex-direction:column; gap:3px; }
+    .categoria-frase { display:block; font-size:10px; line-height:1.15; letter-spacing:.045em; text-transform:uppercase; color:#b8b3a6; font-weight:700; }
+    .categoria-nombre { display:block; font-size:16px; line-height:1.2; white-space:nowrap; font-weight:800; }
+    .categoria-emoji { font-size:23px; }
+    .pestana-menu.activa .categoria-frase { color:#e1bb5d; }
+    .categorias-siguiente { display:none; }
+    @media(max-width:720px){
+      header .nav { min-height:76px; }
+      .logo .emblema-garaje { width:88px; height:65.54px; }
+      .buscador-menu { padding-block:9px; }
+      .buscador-menu input { padding:10px 15px; font-size:14px; }
+      .hero { height:72vw; min-height:260px; max-height:480px; background:#0d0d0d; }
+      .hero::before { display:block; width:auto; aspect-ratio:466 / 619; height:100%; inset:0 0 0 auto; background-image:url('./imagenes/hamburguesa.webp'); background-size:auto 100%; clip-path:none; }
+      .hero h1 { z-index:1; display:block; top:15%; left:4.3%; width:54%; height:auto; margin:0; padding:0; background:none; font-size:clamp(40px,10.8vw,76px); line-height:1.02; overflow:visible; clip-path:none; }
+      .hero h1 br { display:block; }
+      .hero h1 span { display:inline-block; }
+      .hero-botones .boton { top:65%; left:4.3%; width:33%; height:17%; min-height:44px; border-radius:12px; font-size:clamp(14px,4vw,23px); }
+      .menu-esencial { padding-top:20px; }
+      .menu-cabecera h2 { font-size:clamp(36px,9.8vw,64px); }
+      .categorias-pestanas { flex-wrap:nowrap; scrollbar-width:none; padding:2px 35px 6px 0; margin-bottom:16px; scroll-padding-left:0; }
+      .categorias-pestanas::-webkit-scrollbar { display:none; }
+      .categorias-siguiente { position:absolute; display:grid; place-items:center; right:-1px; top:50%; transform:translateY(-55%); width:28px; height:38px; border-radius:10px 0 0 10px; background:#242015; border:1px solid #8e701d; color:#ffd45c; font-size:26px; line-height:1; box-shadow:-9px 0 18px #101010; cursor:pointer; }
+      .pestana-menu { min-height:62px; padding:10px 13px; }
+      .categoria-frase { font-size:9px; }
+      .categoria-nombre { font-size:15px; }
+      .categoria-emoji { font-size:21px; }
+      .lista-productos { padding:8px; border-radius:18px; }
+      .plato-item { padding:15px 12px; }
+    }
   </style>
 </head>
 
@@ -1302,7 +1348,7 @@
     <section class="menu-esencial" id="menu">
       <div class="contenedor">
         <div class="cabecera-seccion menu-cabecera"><h2 class="titulo-seccion">Nuestro menú</h2></div>
-        <div class="categorias-pestanas" id="categorias" aria-label="Categorías de productos"></div>
+        <div class="categorias-navegacion"><div class="categorias-pestanas" id="categorias" aria-label="Categorías de productos"></div><button type="button" class="categorias-siguiente" aria-label="Ver más categorías">›</button></div>
         <div class="menu-distribucion">
           <div class="lista-productos" id="listaProductos" aria-live="polite"></div>
           <aside class="carrito-lateral" id="carritoLateral" aria-label="Tu carrito de compras">
@@ -2485,7 +2531,7 @@
     const ICONOS = {Entradas:"🍟", Pizzas:"🍕", Hamburguesas:"🍔", Papitas:"🍟", "Perros calientes":"🌭", Carnes:"🥩", Especiales:"🔥", Lasañas:"🧀", "Menú infantil":"🧒", Adiciones:"➕", Bebidas:"🥤"};
     const formato = valor => "$" + Number(valor).toLocaleString("es-CO");
     const carrito = new Map();
-    let categoriaActual = "Hamburguesas";
+    let categoriaActual = "Entradas";
     let elegido = null;
 
     /* ========================================================
@@ -2509,6 +2555,10 @@
        ======================================================== */
     const contenedorPestanas = document.getElementById("categorias");
     const contenedorProductos = document.getElementById("listaProductos");
+    document.querySelector('.categorias-siguiente').addEventListener('click',()=>{
+      const limite=contenedorPestanas.scrollWidth-contenedorPestanas.clientWidth;
+      contenedorPestanas.scrollTo({left:contenedorPestanas.scrollLeft>=limite-5?0:contenedorPestanas.scrollLeft+contenedorPestanas.clientWidth*.8,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    });
     const buscador = document.getElementById("buscarMenu");
     const normalizar = texto => texto.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
     buscador.addEventListener("input", () => { elegido = null; renderizarMenu(); });
@@ -2518,7 +2568,13 @@
     [...new Set(PRODUCTOS.map(p=>p.categoria))].forEach(cat=>{
       const boton=document.createElement("button");
       boton.type="button";boton.className="pestana-menu";
-      boton.textContent=`${ICONOS[cat]||"🍽️"}  ${cat}`;
+      const frases={Entradas:'Pa arrancar',Pizzas:'Taller de la masa',Hamburguesas:'Alto rendimiento',Papitas:'Carga pesada','Perros calientes':'Bujías y cilindros',Carnes:'Al rojo vivo',Adiciones:'Mejoras de rendimiento',Bebidas:'Refrigerantes'};
+      const icono=document.createElement('span');icono.className='categoria-emoji';icono.textContent=ICONOS[cat]||'🍽️';icono.setAttribute('aria-hidden','true');
+      const texto=document.createElement('span');texto.className='categoria-textos';
+      if(frases[cat]){const frase=document.createElement('span');frase.className='categoria-frase';frase.textContent=frases[cat];texto.append(frase);}
+      const nombre=document.createElement('span');nombre.className='categoria-nombre';nombre.textContent=cat;texto.append(nombre);
+      boton.append(icono,texto);
+      boton.setAttribute("aria-label",frases[cat]?frases[cat]+": "+cat:cat);
       boton.dataset.categoria=cat;
       boton.addEventListener("click",()=>{
         categoriaActual=cat;buscador.value="";elegido=null;renderizarMenu();
